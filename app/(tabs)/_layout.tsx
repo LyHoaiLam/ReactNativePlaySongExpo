@@ -1,9 +1,10 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { FontAwesome } from '@expo/vector-icons';
+
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -23,15 +24,62 @@ export default function TabLayout() {
           ),
         }}
       />
+
+    <Tabs.Screen
+        name="discover"
+        options={{
+          title: 'Discover',
+          tabBarIcon: () => (
+              <FontAwesome
+              name='music'
+              size={24}
+              color="white"
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="songs"
+        options={{
+          title: 'Songs',
+          tabBarIcon: () => (
+            <FontAwesome
+            name='music'
+            size={24}
+            color="white"
+          />
+          ),
+        }}
+      />
+
+
+      {/* <Tabs.Screen
+        name="libary"
+        options={{
+          title: 'Libary',
+          tabBarIcon: () => (
+            <FontAwesome
+            name='plus'
+            size={24}
+            color="white"
+          />
+          ),
+        }}
+      /> */}
+
+
       <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color}>
+
+            </TabBarIcon>
           ),
         }}
       />
+
     </Tabs>
   );
 }
